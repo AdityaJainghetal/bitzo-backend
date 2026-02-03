@@ -1,6 +1,5 @@
-
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");  // abhi bhi rakha hai kyunki controller mein use karenge
+const bcrypt = require("bcryptjs"); // abhi bhi rakha hai kyunki controller mein use karenge
 
 const userSchema = new mongoose.Schema(
   {
@@ -18,10 +17,10 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
 
-    rewardPoints: { 
+    rewardPoints: {
       type: Number,
       default: 10,
-      min: 10
+      min: 10,
     },
 
     password: {
@@ -43,6 +42,9 @@ const userSchema = new mongoose.Schema(
       sparse: true, // agar deviceId optional banana ho future mein
     },
 
+    googleId: String, // google login ke liye
+    avatar: String,
+
     trustScore: {
       type: Number,
       default: 50,
@@ -53,20 +55,17 @@ const userSchema = new mongoose.Schema(
     viewedVideos: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Video"
-      }
+        ref: "Video",
+      },
     ],
 
     // Reward points earned from watching videos
     rewardPoints: {
       type: Number,
-      default: 0
+      default: 0,
     },
-
-
-   
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // ← Yeh pre-save hook POORA HATA DIYA gaya
