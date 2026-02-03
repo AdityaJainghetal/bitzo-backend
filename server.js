@@ -257,12 +257,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // ---------- CORS ----------
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://bitzo-website.vercel.app",
-    ],
+
+  app.use(cors({
+  origin: true,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
