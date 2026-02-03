@@ -152,11 +152,13 @@ const authRoutes = require("./routes/authRoute.js");
 const adminRoute = require("./routes/AdminRoute/AdminRoute.js");
 const videoRoutes = require("./routes/VideoRoutes.js");
 const userRoutes = require("./routes/userVideoRoute.js");
-
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '1.1.1.1']);
 // Load env variables
 dotenv.config();
 
 // Connect MongoDB
+
 connectDB();
 
 const app = express();
